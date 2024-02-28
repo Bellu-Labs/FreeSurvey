@@ -26,7 +26,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -782,7 +782,8 @@
             body: fd
         })
             .then(response => {
-                window.location.href = 'completed.html'
+                // parent ensures that the tab will go to that page, not just within the iframe
+                parent.location.href = "https://bellu.com/pages/completed-free-survey"
                 // submitForm();
             })
             .catch(error => console.error("Error!", error.message))
